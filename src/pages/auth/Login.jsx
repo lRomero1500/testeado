@@ -1,12 +1,12 @@
 import FacebookLogin from 'react-facebook-login';
 import useAuth from '../../auth/useAuth';
 
-const ResponseFacebook = (response) => {   
-    const auth=useAuth(); 
-    auth.Login(response);
-  }
+
 export default function Login() {
-    
+    const auth=useAuth(); 
+    const ResponseFacebook = (response) => {
+        auth.Login(response);
+    }
     return (
         <section>
             <h1>login</h1>

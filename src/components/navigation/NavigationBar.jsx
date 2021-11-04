@@ -10,7 +10,7 @@ export default function NavigationBar() {
                 <li><NavLink to="/login" activeClassName="activeLink"> Login </NavLink></li>
                 {auth.isLogged() && (
                     
-                    <li><a onClick={auth.logout} activeClassName="activeLink"> Logout </a></li>
+                    <li><a onClick={auth.Logout} activeClassName="activeLink"> Logout </a></li>
                 )}
             </ul>
         </nav>

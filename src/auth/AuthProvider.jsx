@@ -8,15 +8,22 @@ const AuthProvider=({children})=>{
     );
 
     useEffect(() => {
-        localStorage.setItem('user',JSON.stringify(user))
+        try{
+            localStorage.setItem('user',JSON.stringify(user))
+        }catch(error){
+            localStorage.removeItem('user');
+            console.log(error);
+        }
+        
     }, [user]);
 
     const contextValue={
         user,
-        Login(...params){
-            setUser(...params);
+        Login(params){
+            setUser(params);
         },
         Logout(){
+            console.log('click');
             setUser(null);
         },
         isLogged(){
