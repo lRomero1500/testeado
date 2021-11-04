@@ -1,10 +1,14 @@
 import FacebookLogin from 'react-facebook-login';
+import { GoogleLogin } from 'react-google-login';
 import useAuth from '../../auth/useAuth';
 
 
 export default function Login() {
-    const auth=useAuth(); 
+    const auth = useAuth();
     const ResponseFacebook = (response) => {
+        auth.Login(response);
+    }
+    const responseGoogle = (response) => {
         auth.Login(response);
     }
     return (
@@ -17,6 +21,15 @@ export default function Login() {
                 callback={ResponseFacebook}
                 cssClass="my-facebook-button-class"
                 icon="fa-facebook"
+            />
+            <GoogleLogin
+                clientId="1020170175334-iaclcrjpv3l84insqv97a96d1hooglkj.apps.googleusercontent.com"
+                render={renderProps => (
+                    <button onClick={renderProps.onClick} disabled={renderProps.disabled}>This is my custom Google button</button>
+                )}
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                cookiePolicy={'single_host_origin'}
             />
         </section>
     )
