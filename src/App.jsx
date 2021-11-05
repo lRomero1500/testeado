@@ -1,17 +1,16 @@
-import React from "react";
-import AppRouter from "./routers/AppRouter";
-import './App.css';
-import AuthProvider from "./auth/AuthProvider";
+import React from 'react'
+import './App.css'
+import AppRouter from './Routers/AppRouter';
+import AuthProvider from './Auth/AuthProvider';
+import Header from './Layout/Header'
 
 const App = () => {
     return (
-        <div>
-            <AuthProvider>
-                <AppRouter />
-            </AuthProvider>
-        </div>
+        <AuthProvider>
+            <Header />
+            <AppRouter />
+        </AuthProvider>
     )
 }
 
-
-export default App;
+export default App

@@ -1,19 +1,18 @@
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from '../pages/auth'
-import Errors from '../pages/errors'
-import Home from '../pages/home'
-import NavigationBar from '../components/navigation'
-import AppPrivateRoute from '../routers/AppPrivateRoute'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import PrivateRoute from './PrivateRoutes';
+import Login from '../Pages/Login';
+import Index from '../Pages/Index';
+import Error from '../Pages/Error';
+import PublicRoutes from './PublicRoutes';
+
 export default function AppRouter() {
-    return (        
+    return (
         <Router>
-            <NavigationBar />
             <Switch>
-                <Route path="/login" component={Login} />
-                <AppPrivateRoute exact path="/" component={Home} />
-                <Route path="*" component={Errors}/>
+                <PublicRoutes exact path="/login" component={Login} />
+                <PrivateRoute exact path="/" component={Index} />
+                <Route path="*" component={Error} />
             </Switch>
         </Router>
-
     )
 }
