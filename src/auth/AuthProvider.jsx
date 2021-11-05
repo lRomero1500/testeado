@@ -20,6 +20,7 @@ const AuthProvider=({children})=>{
     const contextValue={
         user,
         Login(params){
+            
             setUser(params);
         },
         Logout(){

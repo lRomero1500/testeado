@@ -1,4 +1,4 @@
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from '@greatsumini/react-facebook-login';
 import { GoogleLogin } from 'react-google-login';
 import useAuth from '../../auth/useAuth';
 
@@ -6,9 +6,11 @@ import useAuth from '../../auth/useAuth';
 export default function Login() {
     const auth = useAuth();
     const ResponseFacebook = (response) => {
+        console.log(response);
         auth.Login(response);
     }
     const responseGoogle = (response) => {
+        console.log(response);
         auth.Login(response);
     }
     return (
